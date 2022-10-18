@@ -1,0 +1,143 @@
+/* Define custom variables */
+:root {
+    --primaryColor: black;
+    --secondaryColor: white;
+    --alternativeColor: rgba(79, 85, 87, 0.9);
+    --greenColor: rgba(11, 130, 11, .7);
+    /* none | h-offset (X) v-offset (Y) blur spread color |inset|initial|inherit*/
+    --mainBoxShadow: .3vw .3vw 1vw rgba(120, 200, 87, 11);
+}
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    overflow-x: hidden;
+}
+main {
+    min-width: 100vw;   
+    min-height: 100vh;
+}
+/* container */
+/*
+flex container properties: 
+- flex-direction: Define which direction the container want to display it items, 
+flex-wrap: Specify whether the flex items should be wrap or not. Such as wrapping 
+a gift, 
+flex-flow: Shorthand property for flex-direction and flex-wrap: such as row wrap, justify-content: It is used to algn the flex-items by center, space-between etc., align-items: It is used to align the flex-items, 
+align-content: It is used to align the flex lines.
+*/
+.container, .reversed-container, .order-container,
+.grow-container, .shrink-container, .basis-container, 
+.flex-container, .align-container{
+    display: flex;
+}
+/* 
+Flex-item properties:
+- order: Specify the order of the flex items.
+- flex-grow: Specify how much a flex item will grow relative to the rest of the items
+- flex-shrink: Specify how much a flex item will shrink / change from other items
+- flex-basis: Specify an initial length to a flex item
+- flex: Is shorthand property for the flex-grow, flex-shrink, and flex-basis
+- align-self: Specify the alignment for the selected item inside the flex container
+*/
+.item, .reversedRow, .orderRow, .growRow, 
+.shrinkRow, .basisRow, .flexRow, .alignRow{
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+}
+.item {
+    background-color: var(--greenColor);
+}
+/* Reversed */
+.reversed-container {
+    flex-direction: row-reverse;
+    color: var(--secondaryColor);
+}
+.reversedRow {
+    background-color: var(--alternativeColor);
+}
+/* Order */
+.orderRow {
+    background-color: darkcyan;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+.orderRow:first-child {
+    order: 3;
+}
+/* grow */
+.growRow {
+    background-color: darkkhaki;
+}
+.growRow:first-child {
+    flex-grow: 1;
+}
+.growRow:last-child {
+    flex-grow: 2;
+}
+/* Shrink : Default value is 1*/
+.shrinkRow {
+    background-color: antiquewhite;
+}
+.shrinkRow:nth-child(2) {
+    /* 0: you don't want it to shrink or become small */
+    flex-shrink: 0;
+    box-shadow: var(--mainBoxShadow);
+}
+/* Flex-basis */
+.basisRow {
+    background-color: darkolivegreen;
+    text-align: center;
+    color: var(--secondaryColor);
+}
+.basisRow:nth-child(2) {
+    flex-basis: 40vw;
+}
+/* Flex */
+.flexRow {
+    background-color: var(--alternativeColor);
+    color: var(--secondaryColor);
+}
+.flexRow:nth-child(3) {
+    /* flex-grow, flex-shrink, and flex-basis */
+    flex: 0 0 300px;
+}
+/* Align-self will override the default alignment*/
+.align-container {
+    min-width: 100%;
+    background-color: var(--alternativeColor);
+}
+.alignRow {
+    background-color: antiquewhite;
+}
+.alignRow:last-child {
+    margin-left: auto;
+    margin-right: 2rem;
+    box-shadow: var(--mainBoxShadow);
+}
+/* wrap */
+h2 {
+    text-align: center;
+    margin: 10px 0;
+}
+/* wrapper */
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+}
+.wrapper img {
+    width: 40em;
+    max-width: 40%;
+    object-fit: scale-down;
+}
+/*  */
